@@ -5,13 +5,13 @@ name: Swift
 
 on:
   push:
-    branches: ['vr/flyci-m1']
+    branches: ['vr/flyci-m2']
   pull_request:
     branches: ['main']
 
 jobs:
   build-ios:
-    runs-on: flyci-macos-xlarge
+    runs-on: flyci-macos-large-latest-m2
     steps:
       - uses: actions/checkout@v3
       - name: Build
