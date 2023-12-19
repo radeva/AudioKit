@@ -5,18 +5,16 @@ name: Swift
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['vr/flyci-m1']
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
-
   build-ios:
-
-    runs-on: macos-latest
+    runs-on: flyci-macos-xlarge
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: xcodebuild -scheme AudioKit -destination "platform=iOS Simulator,name=iPhone 14" 
-    - name: Run tests
-      run: xcodebuild -scheme AudioKit -destination "platform=iOS Simulator,name=iPhone 14" test
+      - uses: actions/checkout@v3
+      - name: Build
+        run: xcodebuild -scheme AudioKit -destination "platform=iOS Simulator,name=iPhone 14"
+      - name: Run tests
+        run: xcodebuild -scheme AudioKit -destination "platform=iOS Simulator,name=iPhone 14" test
